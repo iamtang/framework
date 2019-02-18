@@ -1,0 +1,23 @@
+{
+  "name": "framework",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "cross-env": "^5.0.0",
+    "nodemon": "^1.18.9"
+  },
+  "scripts": {
+    "local": "cross-env RUN_ENV=local nodemon app.js --config nodemon.json"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iamtang/framework.git"
+  },
+  "author": "JJ",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/iamtang/framework/issues"
+  },
+  "homepage": "https://github.com/iamtang/framework#readme"
+}
