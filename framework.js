@@ -1,13 +1,14 @@
 const http = require('http');
-
+const compose = require('koa-compose');
 
 class Framework {
   constructor() {
     this.context = Object.create({});
+    this.middleware = [];
   }
 
   use(fn) {
-
+    this.middleware.push(fn);
   }
 
   listen(...argu) {
@@ -15,16 +16,36 @@ class Framework {
     return server.listen.apply(server, argu);
   }
 
-  callback(){
+  createContext(req, res) {
+    const context = new Proxy(this.context, {
+      get: function (target, key, receiver) {
+        return Reflect.get(target, key, receiver);
+      },
+      set: function (target, key, value, receiver) {
+        if(key == 'body' && value){
+          value = value.toString();
+          res.end(value);
+        }
+        return Reflect.set(target, key, value, receiver);
+      }
+    });
+    context.req = req;
+    context.res = res;
+    
+
+    return context;
+  }
+
+  callback() {
     // const fn = compose(this.middleware);
 
     // if (!this.listeners('error').length) this.on('error', this.onerror);
 
     return (req, res) => {
       res.statusCode = 404;
-      res.end('test');
+      const ctx = this.createContext(req, res);
       // onFinished(res, ctx.onerror);
-      // fn(ctx).then(() => respond(ctx)).catch(ctx.onerror);
+      this.middleware[0](ctx)
     };
   }
 }
