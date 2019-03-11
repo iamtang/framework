@@ -71,7 +71,6 @@ function compose(middleware) {
   }
 }
 
-
 /**
  * Response helper.
  */
