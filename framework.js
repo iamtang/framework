@@ -6,7 +6,6 @@ class Framework {
     this.middleware = [];
   }
 
-  
   use(fn) {
     this.middleware.push(fn);
   }
