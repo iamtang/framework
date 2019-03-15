@@ -5,8 +5,7 @@ class Framework {
     this.context = Object.create({});
     this.middleware = [];
   }
-  
-  
+
   use(fn) {
     this.middleware.push(fn);
   }
