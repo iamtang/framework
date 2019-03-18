@@ -26,6 +26,7 @@ class Framework {
 
   callback() {
     const fn = compose(this.middleware);
+    // if (!this.listeners('error').length) this.on('error', this.onerror);
     return (req, res) => {
       res.statusCode = 404;
       const ctx = this.createContext(req, res);
