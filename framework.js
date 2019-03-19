@@ -19,7 +19,6 @@ class Framework {
     context.req = req;
     context.res = res;
 
-
     return context;
   }
 
