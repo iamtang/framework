@@ -1,6 +1,5 @@
 const http = require('http');
 
-
 class Framework {
   constructor() {
     this.context = Object.create({});
