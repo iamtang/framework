@@ -1,5 +1,6 @@
 const http = require('http');
 
+
 class Framework {
   constructor() {
     this.context = Object.create({});
@@ -9,7 +10,7 @@ class Framework {
     this.middleware.push(fn);
   }
   
-  
+
   listen(...argu) {
     const server = http.createServer(this.callback());
     return server.listen.apply(server, argu);
