@@ -104,7 +104,6 @@ function respond(ctx) {
     }
     return res.end(body);
   }
-
   
   // responses
   if (Buffer.isBuffer(body)) return res.end(body);
