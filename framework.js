@@ -105,6 +105,7 @@ function respond(ctx) {
     return res.end(body);
   }
 
+  
   // responses
   if (Buffer.isBuffer(body)) return res.end(body);
   if ('string' == typeof body) return res.end(body);
