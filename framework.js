@@ -109,7 +109,6 @@ function respond(ctx) {
   if (Buffer.isBuffer(body)) return res.end(body);
   if ('string' == typeof body) return res.end(body);
   if (body instanceof Stream) return body.pipe(res);
-
   // body: json
   body = JSON.stringify(body);
   if (!res.headersSent) {
