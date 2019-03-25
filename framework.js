@@ -19,7 +19,6 @@ class Framework {
     const context = Object.create(this.context);
     context.req = req;
     context.res = res;
-
     return context;
   }
 
