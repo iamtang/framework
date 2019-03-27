@@ -1,6 +1,5 @@
 const http = require('http');
 
-
 class Framework {
   constructor() {
     this.context = Object.create({});
@@ -14,7 +13,7 @@ class Framework {
     const server = http.createServer(this.callback());
     return server.listen.apply(server, argu);
   }
-  
+
 
   createContext(req, res) {
     const context = Object.create(this.context);
