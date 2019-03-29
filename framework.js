@@ -5,11 +5,12 @@ class Framework {
     this.context = Object.create({});
     this.middleware = [];
   }
+  
   use(fn) {
     this.middleware.push(fn);
   }
 
-  
+
   listen(...argu) {
     const server = http.createServer(this.callback());
     return server.listen.apply(server, argu);
