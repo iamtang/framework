@@ -15,7 +15,6 @@ class Framework {
     return server.listen.apply(server, argu);
   }
 
-  
   createContext(req, res) {
     const context = Object.create(this.context);
     context.req = req;
