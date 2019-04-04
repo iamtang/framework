@@ -14,13 +14,14 @@ class Framework {
     const server = http.createServer(this.callback());
     return server.listen.apply(server, argu);
   }
+  
   createContext(req, res) {
     const context = Object.create(this.context);
     context.req = req;
     context.res = res;
     return context;
   } 
-  
+
   callback() {
     const fn = compose(this.middleware);
     // if (!this.listeners('error').length) this.on('error', this.onerror);
