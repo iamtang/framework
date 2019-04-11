@@ -15,7 +15,6 @@ class Framework {
     return server.listen.apply(server, argu);
   }
   
-  
   createContext(req, res) {
     const context = Object.create(this.context);
     context.req = req;
@@ -23,7 +22,7 @@ class Framework {
     return context;
   } 
 
-  
+
   callback() {
     const fn = compose(this.middleware);
     // if (!this.listeners('error').length) this.on('error', this.onerror);
