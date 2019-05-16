@@ -21,7 +21,6 @@ class Framework {
     context.res = res;
     return context;
   } 
-
   
   callback() {
     const fn = compose(this.middleware);
